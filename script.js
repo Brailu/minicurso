@@ -4,9 +4,14 @@ const name_character = document.querySelector('#name');
 const species = document.querySelector('#species');
 const is_alive = document.querySelector('#is_alive');
 
+generation_random_value = () => {
+    return Math.floor(Math.random() * 671);
+}
 
 get_character = () => {
-    return fetch(`https://rickandmortyapi.com/api/character/2`, {
+    let random_value = generation_random_value();
+
+    return fetch(`https://rickandmortyapi.com/api/character/${random_value}`, {
         method:'GET', 
         headers: {
             Accpet: 'application/json',
